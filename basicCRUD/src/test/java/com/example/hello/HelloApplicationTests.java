@@ -1,10 +1,10 @@
-package com.SonMinSang.Response;
+package com.example.hello;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ResponseApplicationTests {
+class HelloApplicationTests {
 
 	@Test
 	void contextLoads() {
