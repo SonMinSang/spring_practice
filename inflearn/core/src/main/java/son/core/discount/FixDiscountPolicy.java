@@ -1,7 +1,10 @@
 package son.core.discount;
 
+import org.springframework.stereotype.Component;
 import son.core.member.Grade;
 import son.core.member.Member;
+
+@Component
 
 public class FixDiscountPolicy implements DiscountPolicy{
 

@@ -2,6 +2,7 @@ package son.core.beanfind;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import son.core.AppConfig;
 import son.core.member.MemberService;
@@ -38,7 +39,6 @@ class ApplicationContextBasicFindTest {
     @DisplayName("빈 이름으로 조회x")
     void findBeanByNameX(){
         //ac.getBean("xxxx", MemberService.class);
-        MemberService xxxx = ac.getBean("xxxx", MemberService.class);
-        assertThrows(NoSuchMethodException.class, () -> ac.getBean("xxxx",MemberService.class));
+        assertThrows(NoSuchBeanDefinitionException.class, () -> ac.getBean("xxxx",MemberService.class));
     }
 }
