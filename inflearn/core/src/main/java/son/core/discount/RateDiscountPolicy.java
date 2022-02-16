@@ -1,12 +1,14 @@
 package son.core.discount;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+import son.core.annotation.MainDiscountPolicy;
 import son.core.member.Grade;
 import son.core.member.Member;
 
 @Component
-@Primary
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy{
     private int discountPercent = 10;
     @Override
