@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import son.core.common.MyLogger;
-
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
@@ -22,10 +21,8 @@ public class LogDemoController {
         String requestURL = request.getRequestURL().toString();
         MyLogger myLogger = myLoggerProvider.getObject();
         myLogger.setRequestURL(requestURL);
-
         myLogger.log("controller test");
         logDemoService.logic("testId");
-
         return "OK";
     }
 }
