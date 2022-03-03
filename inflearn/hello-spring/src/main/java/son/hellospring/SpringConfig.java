@@ -3,6 +3,7 @@ package son.hellospring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import son.hellospring.aop.TimeTraceAop;
 import son.hellospring.repository.*;
 import son.hellospring.service.MemberService;
 
@@ -24,6 +25,10 @@ public class SpringConfig {
 
         return new MemberService(memberRepository);
     }
+//    @Bean
+//    public TimeTraceAop timeTraceAop() {
+//        return new TimeTraceAop();
+//    }
     //  @Bean
 //    public MemberRepository memberRepository() {
 // return new MemoryMemberRepository();
