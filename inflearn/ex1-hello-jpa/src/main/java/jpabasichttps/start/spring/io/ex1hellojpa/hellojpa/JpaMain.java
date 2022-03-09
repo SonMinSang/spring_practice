@@ -36,11 +36,29 @@ public class JpaMain {
             Member deleteMember = em.find(Member.class, 1L);
             em.remove(deleteMember);
              */
+            /* 리스트 조회
             List<Member> result = em.createQuery("select m from Member as m", Member.class)
                     .getResultList();
             for (Member member : result) {
                 System.out.println("member.name = " + member.getName());
-            }
+            }*/
+
+            //비영속
+            Member member = new Member();
+            member.setId(100L);
+            member.setName("HelloJPA");
+
+            //영속
+            System.out.println("====Before====");
+            em.persist(member);
+            //준영속
+            // em.detach(member);
+            System.out.println("====After====");
+
+            Member findMember1 = em.find(Member.class, 101L);
+            Member findMember2 = em.find(Member.class, 101L);
+
+            System.out.println("result = " + (findMember1 == findMember2));
             tx.commit();
         } catch (Exception e){
             tx.rollback();
