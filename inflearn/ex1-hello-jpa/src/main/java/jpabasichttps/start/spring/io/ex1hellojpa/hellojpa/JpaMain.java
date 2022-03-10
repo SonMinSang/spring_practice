@@ -45,7 +45,7 @@ public class JpaMain {
 
             //비영속
             Member member = new Member();
-            member.setId(100L);
+            member.setId(101L);
             member.setName("HelloJPA");
 
             //영속
