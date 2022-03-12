@@ -6,6 +6,8 @@
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.Team</class>
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.Member</class>
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.Locker</class>
+        <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.MemberProduct</class>
+        <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.Product</class>
         <!--<class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.domain.Item</class>
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.domain.OrderItem</class>
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.domain.Member</class>
