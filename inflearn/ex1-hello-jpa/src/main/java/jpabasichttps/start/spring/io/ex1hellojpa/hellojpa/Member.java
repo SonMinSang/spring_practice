@@ -18,13 +18,17 @@ public class Member {
     private String username;
 
     @ManyToOne
-    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
+    @JoinColumn(name = "TEAM_ID")
     private Team team;
-//
-//    public void changeTeam(Team team){
-//        this.team = team;
-//
-//        team.getMembers().add(this);
-//    }
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
+    public void changeTeam(Team team){
+        this.team = team;
+
+        team.getMembers().add(this);
+    }
 
 }
