@@ -1,9 +1,12 @@
 package jpabasichttps.start.spring.io.ex1hellojpa.hellojpa;
 
+import org.hibernate.Hibernate;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.Arrays;
 import java.util.List;
 
 public class JpaMain {
@@ -59,19 +62,41 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("member1");
+            Team team = new Team();
+
+            team.setName("Team1");
+            em.persist(team);
+            member.setTeam(team);
 
             em.persist(member);
 
-            Team team = new Team();
-            team.setName("teamA");
+            em.flush();
+            em.clear();
+            Team team1 = em.find(Team.class, team.getId());
+            System.out.println("team.getMembers().size() = " + team1.getMembers().size());
+            
+            for (Member m: team.getMembers()){
+                System.out.println("member = " + m.getUsername());
+            }
 
-            team.getMembers().add(member);
+            Member m1 = em.getReference(Member.class,member.getId());
+            System.out.println("m1 = " + m1.getClass());
 
-            em.persist(team);
+            System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(m1));
+            Hibernate.initialize(m1); //강제 초기화
+            System.out.println("isLoaded = " + emf.getPersistenceUnitUtil().isLoaded(m1));
+//            em.detach(m1);
+//            em.clear();
+//            em.close();
+
+            System.out.println("m1.getUsername() = " + m1.getUsername());
+            Member m2 = em.getReference(Member.class,member.getId());
+            System.out.println("m2 = " + m2.getClass());
 
             tx.commit();
         } catch (Exception e){
             tx.rollback();
+            e.printStackTrace();
         } finally {
             em.close();
         }
