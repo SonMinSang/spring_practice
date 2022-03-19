@@ -12,6 +12,7 @@
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.Child</class>
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.Address</class>
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.Period</class>
+        <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.AddressEntity</class>
         <!--<class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.domain.Item</class>
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.domain.OrderItem</class>
         <class>jpabasichttps.start.spring.io.ex1hellojpa.hellojpa.domain.Member</class>
