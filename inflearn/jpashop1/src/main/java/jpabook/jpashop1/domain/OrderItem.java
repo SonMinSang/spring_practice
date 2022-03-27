@@ -22,4 +22,8 @@ public class OrderItem {
     private Order order;
 
     private int orderPrice;
+
+    public void setOrder(Order order){
+        this.order = order;
+    }
 }
