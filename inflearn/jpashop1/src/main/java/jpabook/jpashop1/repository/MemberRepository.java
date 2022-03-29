@@ -1,6 +1,7 @@
 package jpabook.jpashop1.repository;
 
 import jpabook.jpashop1.domain.Member;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -10,8 +11,12 @@ import java.util.List;
 @Repository
 public class MemberRepository {
 
-    @PersistenceContext
-    private EntityManager em;
+    private final EntityManager em;
+
+    @Autowired
+    public MemberRepository(EntityManager em){
+        this.em = em;
+    }
 
     public void save(Member member){
         em.persist(member);
