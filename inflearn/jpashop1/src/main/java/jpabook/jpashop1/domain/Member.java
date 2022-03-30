@@ -1,6 +1,8 @@
 package jpabook.jpashop1.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class Member {
 
     @Id
@@ -18,6 +21,9 @@ public class Member {
 
     private String name;
 
+    public Member(String name){
+        this.name = name;
+    }
     @Embedded
     private Address address;
 
