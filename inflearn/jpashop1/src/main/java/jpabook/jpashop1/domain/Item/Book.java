@@ -15,4 +15,9 @@ public class Book extends Item{
     public Book(String name, int price, int stockQuantity){
         super(name,price,stockQuantity);
     }
+    public Book(String name, int price, int stockQuantity, String author, String isbn){
+        super(name,price,stockQuantity);
+        this.author = author;
+        this.isbn = isbn;
+    }
 }

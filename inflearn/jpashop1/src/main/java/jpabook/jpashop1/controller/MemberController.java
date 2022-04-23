@@ -1,8 +1,8 @@
-package jpabook.jpashop.controller;
+package jpabook.jpashop1.controller;
 
-import jpabook.jpashop.domain.Address;
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.service.MemberService;
+import jpabook.jpashop1.domain.Address;
+import jpabook.jpashop1.domain.Member;
+import jpabook.jpashop1.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -35,10 +35,7 @@ public class MemberController {
 
         Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
 
-        Member member = new Member();
-        member.setName(form.getName());
-        member.setAddress(address);
-
+        Member member = new Member(form.getName(), address);
         memberService.join(member);
         return "redirect:/";
     }
