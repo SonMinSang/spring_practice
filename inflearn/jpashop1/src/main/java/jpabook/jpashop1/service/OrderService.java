@@ -1,7 +1,7 @@
 package jpabook.jpashop1.service;
 
 import jpabook.jpashop1.domain.Delivery;
-import jpabook.jpashop1.domain.Item.Item;
+import jpabook.jpashop1.domain.item.Item;
 import jpabook.jpashop1.domain.Member;
 import jpabook.jpashop1.domain.Order;
 import jpabook.jpashop1.domain.OrderItem;

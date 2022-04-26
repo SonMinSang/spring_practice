@@ -1,14 +1,13 @@
 package jpabook.jpashop1.service;
 
 import jpabook.jpashop1.domain.Address;
-import jpabook.jpashop1.domain.Item.Book;
-import jpabook.jpashop1.domain.Item.Item;
+import jpabook.jpashop1.domain.item.Book;
+import jpabook.jpashop1.domain.item.Item;
 import jpabook.jpashop1.domain.Member;
 import jpabook.jpashop1.domain.Order;
 import jpabook.jpashop1.domain.OrderStatus;
 import jpabook.jpashop1.exception.NotEnouthStockException;
 import jpabook.jpashop1.repository.OrderRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

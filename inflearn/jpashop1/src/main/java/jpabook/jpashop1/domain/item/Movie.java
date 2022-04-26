@@ -1,4 +1,4 @@
-package jpabook.jpashop1.domain.Item;
+package jpabook.jpashop1.domain.item;
 
 import lombok.Getter;
 

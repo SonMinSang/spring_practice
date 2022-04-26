@@ -2,7 +2,7 @@ package jpabook.jpashop1.controller;
 
 import jpabook.jpashop1.domain.Member;
 import jpabook.jpashop1.domain.Order;
-import jpabook.jpashop1.domain.Item.Item;
+import jpabook.jpashop1.domain.item.Item;
 import jpabook.jpashop1.repository.OrderSearch;
 import jpabook.jpashop1.service.ItemService;
 import jpabook.jpashop1.service.MemberService;

@@ -1,7 +1,7 @@
 package jpabook.jpashop1.controller;
 
-import jpabook.jpashop1.domain.Item.Book;
-import jpabook.jpashop1.domain.Item.Item;
+import jpabook.jpashop1.domain.item.Book;
+import jpabook.jpashop1.domain.item.Item;
 import jpabook.jpashop1.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

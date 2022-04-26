@@ -1,4 +1,4 @@
-package jpabook.jpashop1.domain.Item;
+package jpabook.jpashop1.domain.item;
 
 import jpabook.jpashop1.domain.Category;
 import jpabook.jpashop1.exception.NotEnouthStockException;
