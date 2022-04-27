@@ -1,5 +1,6 @@
 package jpabook.jpashop1.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,15 +28,18 @@ public class Member {
     public Member(String name){
         this.name = name;
     }
-    public Member(String name, Address address){
+    public Member(String name, Address address) {
         this.name = name;
         this.address = address;
     }
     @Embedded
     private Address address;
 
+    @JsonIgnore
     @OneToMany
     private List<Order> orders = new ArrayList<>();
 
-
+    public void updateName(String name){
+        this.name = name;
+    }
 }
