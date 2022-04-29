@@ -35,7 +35,6 @@ public class Member {
     @Embedded
     private Address address;
 
-    @JsonIgnore
     @OneToMany
     private List<Order> orders = new ArrayList<>();
 
