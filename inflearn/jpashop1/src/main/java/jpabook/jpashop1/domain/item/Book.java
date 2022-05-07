@@ -1,6 +1,8 @@
 package jpabook.jpashop1.domain.item;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 @Entity
 @Getter
 @DiscriminatorValue("B")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Book extends Item{
     private String author;
     private String isbn;
