@@ -18,6 +18,7 @@ public class InitDb {
     @PostConstruct
     public void init(){
         initService.dbInit1();
+        initService.dbInit2();
     }
 
     @Component
@@ -39,6 +40,23 @@ public class InitDb {
 
             Delivery delivery = new Delivery(member.getAddress());
             Order order  = Order.createOrder(member, delivery, orderItem2, orderItem1);
+            em.persist(order);
+        }
+
+        public void dbInit2(){
+            Member member = new Member("userB", new Address("전주", "2", "2222"));
+            em.persist(member);
+
+            Book book1 = new Book("SPRING1 BOOK", 20000, 200);
+            em.persist(book1);
+            Book book2 = new Book("SPRING2 BOOK", 40000, 300);
+            em.persist(book2);
+
+            OrderItem orderItem1 = OrderItem.createOrderItem(book1, 20000, 3);
+            OrderItem orderItem2 = OrderItem.createOrderItem(book2, 40000, 4);
+
+            Delivery delivery = new Delivery(member.getAddress());
+            Order order  = Order.createOrder(member, delivery, orderItem1, orderItem2);
             em.persist(order);
         }
     }
