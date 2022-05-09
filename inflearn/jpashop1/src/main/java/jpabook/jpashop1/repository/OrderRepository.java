@@ -1,6 +1,7 @@
 package jpabook.jpashop1.repository;
 
 import jpabook.jpashop1.domain.Order;
+import jpabook.jpashop1.repository.simplequery.OrderSimpleQueryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
@@ -94,4 +95,6 @@ public class OrderRepository {
                         " join fetch o.member" +
                         " join fetch o.delivery d", Order.class).getResultList();
     }
+
+
 }
