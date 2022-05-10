@@ -36,6 +36,7 @@ public class Member {
     private Address address;
 
     @OneToMany
+    @JsonIgnore
     private List<Order> orders = new ArrayList<>();
 
     public void updateName(String name){
