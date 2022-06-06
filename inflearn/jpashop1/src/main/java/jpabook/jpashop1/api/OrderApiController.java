@@ -10,6 +10,7 @@ import jpabook.jpashop1.repository.order.query.OrderFlatDto;
 import jpabook.jpashop1.repository.order.query.OrderItemQueryDto;
 import jpabook.jpashop1.repository.order.query.OrderQueryDto;
 import jpabook.jpashop1.repository.order.query.OrderQueryRepository;
+import jpabook.jpashop1.service.query.OrderQueryService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 
@@ -27,6 +27,7 @@ import static java.util.stream.Collectors.*;
 public class OrderApiController {
 
     private final OrderRepository orderRepository;
+    private final OrderQueryService orderQueryService;
     private final OrderQueryRepository orderQueryRepository;
 
     //엔티티 조회 후 그대로 반환
@@ -54,12 +55,8 @@ public class OrderApiController {
 
     //fetch join 으로 쿼리 수 최적화
     @GetMapping("/api/v3/orders")
-    public List<OrderDto> ordersV3(){
-        List<Order> orders = orderRepository.findAllWithItem();
-        List<OrderDto> result = orders.stream()
-                .map(o -> new OrderDto(o))
-                .collect(toList());
-        return result;
+    public List<jpabook.jpashop1.service.query.OrderDto> ordersV3(){
+        return orderQueryService.ordersV3();
     }
 
     // 컬렉션 페이징 과 한계 돌파
@@ -85,8 +82,8 @@ public class OrderApiController {
         return orderQueryRepository.findAllByDto_optimization();
     }
 
-    // 플랫데이터 최적화화
-    @GtMapping("/api/v6/orders")
+    // 플랫데이터 최적화
+    @GetMapping("/api/v6/orders")
     public List<OrderQueryDto> ordersV6() {
         List<OrderFlatDto> flats = orderQueryRepository.findAllByDto_flat();
 
@@ -97,10 +94,6 @@ public class OrderApiController {
                         .map(e -> new OrderQueryDto(e.getKey().getOrderId(), e.getKey().getName(), e.getKey().getOrderDate(), e.getKey().getOrderStatus(), e.getKey().getAddress(), e.getValue()))
                         .collect(toList());
     }
-
-
-
-
 
     @Data
     static class OrderDto{
